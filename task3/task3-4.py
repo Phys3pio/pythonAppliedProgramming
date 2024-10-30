@@ -1,15 +1,12 @@
 class SlugConverter:
     def __init__(self,name):
-        print("Введите название файла")
-        self.file_name=input()
         self.slug_list=[]
-        self.slug_list.append(run(name))
+        self.slug=translit_to_eng(name)
+        
+    def __str__(self):
+        return self.slug
 
-
-    def run(name):
-        translit_to_eng(name)
-
-    def translit_to_eng(s):
+def translit_to_eng(s):
         a = ["a", "b", "v", "g", "d", "e", "o", "gh", "z", "i", "y", "k", "l", "m", "n", "o", "p", "r", "s", "t", "u",
              "f",
              "h", "tc", "ch", "ch", "ch", "", "i", "", "e", "yu", "ya", "-"]
@@ -23,5 +20,5 @@ class SlugConverter:
         for i in range(len(c)):
             d = d + (a[c[i]])
         return d
-name=input()
-print(SlugConverter.run(name))
+name=input("Введите имя:")
+print(SlugConverter(name))
